@@ -4,9 +4,10 @@
 #  Author: 易思龙 <ixxoo.me@gmail.com>
 #  Create: 2015-07-04
 
-shell_name=$(basename $0)
-echo $shell_name
-tar -jcvf - `ls -A | grep -v "$shell_name"` | tar -jxvf - -C ~/
+real_file_name=`readlink -f ${0}`
+SHELL_DIR=$(cd `dirname ${real_file_name}`; pwd)
+cd ${SHELL_DIR}
+tar -cf - ./ --exclude=copy.sh --exclude=README.md --exclude=.git | tar -xvf - -C ../
 
 echo "-----------------------------"
 echo "please exec: source ~/.bashrc"
