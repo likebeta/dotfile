@@ -7,7 +7,8 @@
 real_file_name=`readlink -f ${0}`
 SHELL_DIR=$(cd `dirname ${real_file_name}`; pwd)
 cd ${SHELL_DIR}
-tar -cf - ./ --exclude=copy.sh --exclude=README.md --exclude=.git | tar -xvf - -C ../
+tar -cf - ./ --exclude=copy.sh --exclude=README.md --exclude=.bashrc --exclude=.git | tar -xvf - -C ../
+cat .bashrc >> ~/.bashrc
 
 echo "-----------------------------"
 echo "please exec: source ~/.bashrc"
