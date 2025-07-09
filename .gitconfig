@@ -19,3 +19,4 @@
 	editor = vim
 	safecrlf = true
 	autocrlf = false
+	quotepath = false
